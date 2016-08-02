@@ -9,6 +9,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonteCarloForecast", "..\Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonteCarloForecastTest", "MonteCarloForecastTest\MonteCarloForecastTest.csproj", "{EE9290C6-C287-4948-AD40-6AA5968DC998}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebApp", "..\WebApp\", "{1C29FF48-5B59-448A-9B6E-781A26FD4E4D}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{988bc280-5e11-461d-9488-215ec0c5e91b}|MonteCarloForecast.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50296"
+		Debug.AspNetCompiler.PhysicalPath = "..\WebApp\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50296\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50296"
+		Release.AspNetCompiler.PhysicalPath = "..\WebApp\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50296\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50296"
+		SlnRelativePath = "..\WebApp\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +50,10 @@ Global
 		{EE9290C6-C287-4948-AD40-6AA5968DC998}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE9290C6-C287-4948-AD40-6AA5968DC998}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE9290C6-C287-4948-AD40-6AA5968DC998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C29FF48-5B59-448A-9B6E-781A26FD4E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C29FF48-5B59-448A-9B6E-781A26FD4E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C29FF48-5B59-448A-9B6E-781A26FD4E4D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C29FF48-5B59-448A-9B6E-781A26FD4E4D}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -63,7 +63,7 @@ namespace MonteCarloForecastTest
 
             List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples);
 
-            string x = "";
+
 
         }
 
