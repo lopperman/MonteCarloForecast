@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ForecastResultTest.cs" />
+    <Compile Include="ForecastTest.cs" />
+    <Compile Include="MathUtilitiesTest.cs" />
     <Compile Include="TrialResultTest.cs" />
     <Compile Include="TrialTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

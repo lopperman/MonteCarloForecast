@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forecast.cs" />
+    <Compile Include="ForecastResult.cs" />
+    <Compile Include="MathUtilities.cs" />
     <Compile Include="Trial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrialResult.cs" />
