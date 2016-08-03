@@ -13,16 +13,20 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        startDate.SelectedDate = DateTime.Today;
-        txtEstHighVelocity.Text = "10";
-        txtEstLowVelocity.Text = "6";
-        txtHighProb.Text = "1.0";
-        txtHighRemainingStories.Text = "45";
-        txtLowProb.Text = "1.0";
-        txtLowRemainingStories.Text = "40";
-        txtModelSize.Text = "100000";
-        txtSamples.Text = "5,6,3,3,1,18,13,5";
-        
+        if (!IsPostBack)
+        {
+            startDate.SelectedDate = DateTime.Today;
+            txtEstHighVelocity.Text = "10";
+            txtEstLowVelocity.Text = "6";
+            txtHighProb.Text = "1.0";
+            txtHighRemainingStories.Text = "45";
+            txtLowProb.Text = "1.0";
+            txtLowRemainingStories.Text = "40";
+            txtModelSize.Text = "100000";
+            txtSamples.Text = "5,6,3,3,1,18,13,5";
+        }
+
+
     }
 
     protected void btnForecastHistory_Click(object sender, EventArgs e)
@@ -32,10 +36,7 @@ public partial class _Default : System.Web.UI.Page
         int RemainingStoriesGuessHigh = Convert.ToInt32(txtHighRemainingStories.Text);
         double SplitProbabilityLow = Convert.ToDouble(txtLowProb.Text);
         double SplitProbabilityHigh = Convert.ToDouble(txtHighProb.Text);
-        int myInt;
-        int[] samples = txtSamples.Text.ToCharArray().Where(x =>
-int.TryParse(x.ToString(), out myInt)).Select(x =>
-int.Parse(x.ToString())).ToArray();
+        int[] samples = txtSamples.Text.Split(','.ToString().ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(n => Convert.ToInt32(n)).ToArray();
         int modelSize = Convert.ToInt32(txtModelSize.Text);
 
         Forecast f = new Forecast(StartDt, RemainingStoriesGuessLow, RemainingStoriesGuessHigh, SplitProbabilityLow, SplitProbabilityHigh);
@@ -46,7 +47,7 @@ int.Parse(x.ToString())).ToArray();
 
         foreach (ForecastResult fr in results.OrderByDescending(x => x.Date).ToList())
         {
-            sb.AppendLine(string.Format("{0}%\t{1} Weeks\t{2}", fr.Likelihood, fr.Weeks, fr.Date.ToShortDateString()));
+            sb.AppendLine(string.Format("{0:000}%\t{1:00} Weeks\t{2}", fr.Likelihood, fr.Weeks, fr.Date.ToShortDateString()));
         }
 
         TextBox1.Text = sb.ToString();
@@ -56,27 +57,27 @@ int.Parse(x.ToString())).ToArray();
 
     protected void btnForecastGuess_Click(object sender, EventArgs e)
     {
-        //DateTime StartDt = startDate.SelectedDate.Date;
-        //int RemainingStoriesGuessLow = Convert.ToInt32(txtLowRemainingStories.Text);
-        //int RemainingStoriesGuessHigh = Convert.ToInt32(txtHighRemainingStories.Text);
-        //double SplitProbabilityLow = Convert.ToDouble(txtLowProb.Text);
-        //double SplitProbabilityHigh = Convert.ToDouble(txtHighProb.Text);
-        //int modelSize = Convert.ToInt32(txtModelSize.Text);
-        //int guessLow = Convert.ToInt32(txtEstLowVelocity.Text);
-        //int guessHigh = Convert.ToInt32(txtEstHighVelocity.Text);
+        DateTime StartDt = startDate.SelectedDate.Date;
+        int RemainingStoriesGuessLow = Convert.ToInt32(txtLowRemainingStories.Text);
+        int RemainingStoriesGuessHigh = Convert.ToInt32(txtHighRemainingStories.Text);
+        double SplitProbabilityLow = Convert.ToDouble(txtLowProb.Text);
+        double SplitProbabilityHigh = Convert.ToDouble(txtHighProb.Text);
+        int lowStoriesPerWeek = Convert.ToInt32(txtEstLowVelocity.Text);
+        int highStoriesPerWeek = Convert.ToInt32(txtEstHighVelocity.Text);
+        int modelSize = Convert.ToInt32(txtModelSize.Text);
 
-        //Forecast f = new Forecast(StartDt, RemainingStoriesGuessLow, RemainingStoriesGuessHigh, SplitProbabilityLow, SplitProbabilityHigh);
+        Forecast f = new Forecast(StartDt, RemainingStoriesGuessLow, RemainingStoriesGuessHigh, SplitProbabilityLow, SplitProbabilityHigh);
 
-        //List<ForecastResult> results = f.fo
+        List<ForecastResult> results = f.GetForecastBasedOnHighLowGuess(modelSize, lowStoriesPerWeek,highStoriesPerWeek);
 
-        //StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
-        //foreach (ForecastResult fr in results.OrderByDescending(x => x.Date).ToList())
-        //{
-        //    sb.AppendLine(string.Format("{0}%\t{1} Weeks\t{2}", fr.Likelihood, fr.Weeks, fr.Date.ToShortDateString()));
-        //}
+        foreach (ForecastResult fr in results.OrderByDescending(x => x.Date).ToList())
+        {
+            sb.AppendLine(string.Format("{0:000}%\t{1:00} Weeks\t{2}", fr.Likelihood, fr.Weeks, fr.Date.ToShortDateString()));
+        }
 
-        //TextBox1.Text = sb.ToString();
+        TextBox1.Text = sb.ToString();
 
     }
 }

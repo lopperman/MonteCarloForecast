@@ -52,8 +52,8 @@ namespace MonteCarloForecastTest
         public void ForecastComparison()
         {
             DateTime StartDt = DateTime.Now;
-            int RemainingStoriesGuessLow = 35;
-            int RemainingStoriesGuessHigh = 40;
+            int RemainingStoriesGuessLow = 30;
+            int RemainingStoriesGuessHigh = 35;
             double SplitProbabilityLow = 1.0;
             double SplitProbabilityHigh = 1.0;
             int[] samples = new int[] { 5, 6, 3, 3, 1, 18, 13, 5 };
@@ -62,6 +62,7 @@ namespace MonteCarloForecastTest
             Forecast f = new Forecast(StartDt, RemainingStoriesGuessLow, RemainingStoriesGuessHigh, SplitProbabilityLow, SplitProbabilityHigh);
 
             List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples);
+
 
 
 

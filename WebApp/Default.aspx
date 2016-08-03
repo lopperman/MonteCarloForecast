@@ -37,7 +37,7 @@
         <asp:Button ID="btnForecastGuess" runat="server" OnClick="btnForecastGuess_Click" Text="Forecast (Guess based)" />
         <br />
         <br />
-        <asp:TextBox ID="TextBox1" runat="server" Height="208px" TextMode="MultiLine" Width="692px"></asp:TextBox>
+        <asp:TextBox ID="TextBox1" runat="server" Height="356px" TextMode="MultiLine" Width="692px"></asp:TextBox>
     </form>
 </body>
 </html>

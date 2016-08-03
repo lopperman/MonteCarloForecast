@@ -52,6 +52,29 @@ namespace MonteCarloForecast
             return BuildForecastResults(weeksToZero);
         }
 
+        public List<ForecastResult> GetForecastBasedOnHighLowGuess(int modelSize, int lowStoriesPerWeek, int highStoriesPerWeek)
+        {
+
+            double[] weeksToZero = new double[modelSize];
+
+            for (int i = 0; i < modelSize; i++)
+            {
+                Trial trial = new Trial(Rnd);
+                trial.LowStoryRemainingEstimate = RemainingStoriesGuessLow;
+                trial.HighStoryRemainingEstimate = RemainingStoriesGuessHigh;
+                trial.LowSplitProbability = SplitProbabilityLow;
+                trial.HighSplitProbability = SplitProbabilityHigh;
+                trial.StartDate = StartDt;
+                TrialResult trialResult = trial.RunTrialBasedOnGuess(lowStoriesPerWeek,highStoriesPerWeek);
+                weeksToZero[i] = trialResult.Results.Count - 1;
+
+                if (i > modelSize) break;
+            }
+
+            return BuildForecastResults(weeksToZero);
+        }
+
+
         public List<ForecastResult> BuildForecastResults(double[] array)
         {
             List<ForecastResult> ret = new List<ForecastResult>();
