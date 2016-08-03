@@ -34,7 +34,7 @@
         <asp:TextBox ID="txtEstLowVelocity" runat="server" AutoPostBack="True"></asp:TextBox>
 &nbsp;/
         <asp:TextBox ID="txtEstHighVelocity" runat="server" AutoPostBack="True"></asp:TextBox>
-        <asp:Button ID="btnForecastGuess" runat="server" Text="Forecast (Guess based)" />
+        <asp:Button ID="btnForecastGuess" runat="server" OnClick="btnForecastGuess_Click" Text="Forecast (Guess based)" />
         <br />
         <br />
         <asp:TextBox ID="TextBox1" runat="server" Height="208px" TextMode="MultiLine" Width="692px"></asp:TextBox>
