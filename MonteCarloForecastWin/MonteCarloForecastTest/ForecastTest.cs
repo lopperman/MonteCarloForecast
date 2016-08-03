@@ -36,7 +36,7 @@ namespace MonteCarloForecastTest
             double SplitProbabilityLow = 1.0;
             double SplitProbabilityHigh = 1.0;
             int[] samples = new int[] { 5, 6, 3, 1, 18, 13, 5, 4 };
-            int modelSize = 10000;
+            int modelSize = 100000;
 
             Forecast f = new Forecast(StartDt, RemainingStoriesGuessLow, RemainingStoriesGuessHigh, SplitProbabilityLow, SplitProbabilityHigh);
 
@@ -45,6 +45,24 @@ namespace MonteCarloForecastTest
             List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples);
 
 
+
+        }
+
+        [Test]
+        public void GetForecastBasedOnGuessingVelocity()
+        {
+            DateTime StartDt = DateTime.Now;
+            int RemainingStoriesGuessLow = 40;
+            int RemainingStoriesGuessHigh = 45;
+            double SplitProbabilityLow = 1.0;
+            double SplitProbabilityHigh = 1.0;
+            int modelSize = 100000;
+            int lowVelocityGuess = 6;
+            int highVelocityGuess = 10;
+
+            Forecast f = new Forecast(StartDt, RemainingStoriesGuessLow, RemainingStoriesGuessHigh, SplitProbabilityLow, SplitProbabilityHigh);
+
+            List<ForecastResult> results = f.GetForecastBasedOnHighLowGuess(modelSize, lowVelocityGuess, highVelocityGuess);
 
         }
 
