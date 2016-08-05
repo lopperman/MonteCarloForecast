@@ -2,9 +2,9 @@
 
 C# Implementation of the Monto Carlo Probability Forecast
 
-We were using an excel spreadsheet to do Monte Carlo style forecasting for an Agile Software Development project.  That was working ok, but I wanted to be able to utilize a larger number of random probability models than excel allowed (spreadsheet supported 500 models).  I found that increasing the model size to at least 100,000, the variation of forecast output was reduced drastically.
+We were using an excel spreadsheet to do Monte Carlo style forecasting for an Agile Software Development project.  That was working ok, but I wanted to be able to utilize a larger number of random probability models than excel allowed (spreadsheet supported 500 models, and adding more was tedious, and slow).  I found that increasing the model size to at least 100,000, the variation of forecast output was reduced drastically, but a horrible experience using a spreadsheet.
 
-So, at the request of a member of my team, I translated the code into C#.  My goal is to have a working front end Web App and Windows App.  The logic for the forecasting is all in a DLL, so feel free to use that and create your own front end.
+So, at the request of a member of my team, I decided to create this forecasting ability using C#.  My goal is to have a working front end Web App and Windows App that are easy to use.  The logic for the forecasting is all in a DLL, so feel free to use that and create your own front end.
 
 An example for how to create a forecast is below:
 
