@@ -1,5 +1,7 @@
 # MonteCarloForecast
 
+![Winforms Sample](https://github.com/lopperman/MonteCarloForecast/blob/master/winForecastScreenshot.PNG)
+
 C# Implementation of the Monto Carlo Probability Forecast
 
 We were using an excel spreadsheet to do Monte Carlo style forecasting for an Agile Software Development project.  That was working ok, but I wanted to be able to utilize a larger number of random probability models than excel allowed (spreadsheet supported 500 models, and adding more was tedious, and slow).  I found that increasing the model size to at least 100,000, the variation of forecast output was reduced drastically, but a horrible experience using a spreadsheet.
