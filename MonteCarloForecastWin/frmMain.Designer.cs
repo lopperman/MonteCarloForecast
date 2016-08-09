@@ -30,37 +30,37 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.dtStartDt = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.numPermutations = new System.Windows.Forms.NumericUpDown();
+            this.numRemainingLowGuess = new System.Windows.Forms.NumericUpDown();
             this.numSplitRateHigh = new System.Windows.Forms.NumericUpDown();
+            this.numRemainingHighGuess = new System.Windows.Forms.NumericUpDown();
             this.numSplitRateLow = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numPermutations = new System.Windows.Forms.NumericUpDown();
             this.numLowVelocityGuess = new System.Windows.Forms.NumericUpDown();
             this.numHighVelocityGuess = new System.Windows.Forms.NumericUpDown();
-            this.numRemainingHighGuess = new System.Windows.Forms.NumericUpDown();
-            this.numRemainingLowGuess = new System.Windows.Forms.NumericUpDown();
-            this.dtStartDt = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmdHighLowGuessForecast = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtSamples = new System.Windows.Forms.TextBox();
             this.cmdSamplesForecast = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtSamples = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.rtbResults = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numSplitRateHigh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numSplitRateLow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPermutations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRemainingLowGuess)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSplitRateHigh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRemainingHighGuess)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSplitRateLow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLowVelocityGuess)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHighVelocityGuess)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numRemainingHighGuess)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numRemainingLowGuess)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -96,96 +96,13 @@
             this.label8.TabIndex = 36;
             this.label8.Text = "Split Rate (High Bound):";
             // 
-            // label9
+            // dtStartDt
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(43, 126);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 13);
-            this.label9.TabIndex = 35;
-            this.label9.Text = "Split Rate (Low Bound):";
-            // 
-            // numSplitRateHigh
-            // 
-            this.numSplitRateHigh.DecimalPlaces = 2;
-            this.numSplitRateHigh.Location = new System.Drawing.Point(170, 150);
-            this.numSplitRateHigh.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numSplitRateHigh.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numSplitRateHigh.Name = "numSplitRateHigh";
-            this.numSplitRateHigh.Size = new System.Drawing.Size(82, 20);
-            this.numSplitRateHigh.TabIndex = 34;
-            this.numSplitRateHigh.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numSplitRateLow
-            // 
-            this.numSplitRateLow.DecimalPlaces = 2;
-            this.numSplitRateLow.Location = new System.Drawing.Point(170, 124);
-            this.numSplitRateLow.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numSplitRateLow.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numSplitRateLow.Name = "numSplitRateLow";
-            this.numSplitRateLow.Size = new System.Drawing.Size(82, 20);
-            this.numSplitRateLow.TabIndex = 33;
-            this.numSplitRateLow.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(61, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 13);
-            this.label6.TabIndex = 32;
-            this.label6.Text = "Guess High Velocity:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(61, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 13);
-            this.label5.TabIndex = 31;
-            this.label5.Text = "Guess Low Velocity:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 100);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 13);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "Remaining Stories (High Guess):";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 13);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "Remaining Stories (Low Guess):";
+            this.dtStartDt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtStartDt.Location = new System.Drawing.Point(170, 19);
+            this.dtStartDt.Name = "dtStartDt";
+            this.dtStartDt.Size = new System.Drawing.Size(82, 20);
+            this.dtStartDt.TabIndex = 21;
             // 
             // label2
             // 
@@ -196,14 +113,14 @@
             this.label2.TabIndex = 28;
             this.label2.Text = "Model Permutations:";
             // 
-            // label1
+            // label9
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(118, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Start Dt:";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(43, 126);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(119, 13);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "Split Rate (Low Bound):";
             // 
             // numPermutations
             // 
@@ -228,6 +145,111 @@
             0,
             0});
             // 
+            // numRemainingLowGuess
+            // 
+            this.numRemainingLowGuess.Location = new System.Drawing.Point(170, 72);
+            this.numRemainingLowGuess.Name = "numRemainingLowGuess";
+            this.numRemainingLowGuess.Size = new System.Drawing.Size(82, 20);
+            this.numRemainingLowGuess.TabIndex = 22;
+            // 
+            // numSplitRateHigh
+            // 
+            this.numSplitRateHigh.DecimalPlaces = 2;
+            this.numSplitRateHigh.Location = new System.Drawing.Point(170, 150);
+            this.numSplitRateHigh.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numSplitRateHigh.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numSplitRateHigh.Name = "numSplitRateHigh";
+            this.numSplitRateHigh.Size = new System.Drawing.Size(82, 20);
+            this.numSplitRateHigh.TabIndex = 34;
+            this.numSplitRateHigh.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numRemainingHighGuess
+            // 
+            this.numRemainingHighGuess.Location = new System.Drawing.Point(170, 98);
+            this.numRemainingHighGuess.Name = "numRemainingHighGuess";
+            this.numRemainingHighGuess.Size = new System.Drawing.Size(82, 20);
+            this.numRemainingHighGuess.TabIndex = 23;
+            // 
+            // numSplitRateLow
+            // 
+            this.numSplitRateLow.DecimalPlaces = 2;
+            this.numSplitRateLow.Location = new System.Drawing.Point(170, 124);
+            this.numSplitRateLow.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numSplitRateLow.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numSplitRateLow.Name = "numSplitRateLow";
+            this.numSplitRateLow.Size = new System.Drawing.Size(82, 20);
+            this.numSplitRateLow.TabIndex = 33;
+            this.numSplitRateLow.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(118, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Start Dt:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(157, 13);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Remaining Stories (Low Guess):";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 100);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(159, 13);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Remaining Stories (High Guess):";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(61, 52);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 13);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Guess High Velocity:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(61, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(103, 13);
+            this.label5.TabIndex = 31;
+            this.label5.Text = "Guess Low Velocity:";
+            // 
             // numLowVelocityGuess
             // 
             this.numLowVelocityGuess.Location = new System.Drawing.Point(170, 24);
@@ -251,28 +273,6 @@
             0,
             0,
             0});
-            // 
-            // numRemainingHighGuess
-            // 
-            this.numRemainingHighGuess.Location = new System.Drawing.Point(170, 98);
-            this.numRemainingHighGuess.Name = "numRemainingHighGuess";
-            this.numRemainingHighGuess.Size = new System.Drawing.Size(82, 20);
-            this.numRemainingHighGuess.TabIndex = 23;
-            // 
-            // numRemainingLowGuess
-            // 
-            this.numRemainingLowGuess.Location = new System.Drawing.Point(170, 72);
-            this.numRemainingLowGuess.Name = "numRemainingLowGuess";
-            this.numRemainingLowGuess.Size = new System.Drawing.Size(82, 20);
-            this.numRemainingLowGuess.TabIndex = 22;
-            // 
-            // dtStartDt
-            // 
-            this.dtStartDt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtStartDt.Location = new System.Drawing.Point(170, 19);
-            this.dtStartDt.Name = "dtStartDt";
-            this.dtStartDt.Size = new System.Drawing.Size(82, 20);
-            this.dtStartDt.TabIndex = 21;
             // 
             // groupBox2
             // 
@@ -309,7 +309,16 @@
             this.groupBox3.Size = new System.Drawing.Size(269, 110);
             this.groupBox3.TabIndex = 34;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Parameters - Forecast Based on High/Low Guess";
+            this.groupBox3.Text = "Parameters - Forecast Based on Historic Samples";
+            // 
+            // txtSamples
+            // 
+            this.txtSamples.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSamples.Location = new System.Drawing.Point(3, 29);
+            this.txtSamples.Multiline = true;
+            this.txtSamples.Name = "txtSamples";
+            this.txtSamples.Size = new System.Drawing.Size(263, 55);
+            this.txtSamples.TabIndex = 34;
             // 
             // cmdSamplesForecast
             // 
@@ -330,15 +339,6 @@
             this.label7.Size = new System.Drawing.Size(263, 13);
             this.label7.TabIndex = 32;
             this.label7.Text = "Enter 7 or more historic samples (e.g. 3,5,6,5,8,11,9)";
-            // 
-            // txtSamples
-            // 
-            this.txtSamples.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSamples.Location = new System.Drawing.Point(3, 29);
-            this.txtSamples.Multiline = true;
-            this.txtSamples.Name = "txtSamples";
-            this.txtSamples.Size = new System.Drawing.Size(263, 55);
-            this.txtSamples.TabIndex = 34;
             // 
             // groupBox4
             // 
@@ -373,13 +373,13 @@
             this.Text = "Forecast";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numSplitRateHigh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numSplitRateLow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPermutations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRemainingLowGuess)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSplitRateHigh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRemainingHighGuess)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSplitRateLow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLowVelocityGuess)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHighVelocityGuess)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numRemainingHighGuess)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numRemainingLowGuess)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
