@@ -55,7 +55,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\MonteCarloForecast\MonteCarloForecast.csproj">
+    <ProjectReference Include="..\MonteCarloForecast\MonteCarloForecast.csproj">
       <Project>{988BC280-5E11-461D-9488-215EC0C5E91B}</Project>
       <Name>MonteCarloForecast</Name>
     </ProjectReference>

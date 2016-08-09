@@ -117,7 +117,9 @@ namespace MonteCarloForecastWin
 
         private string BuildResultLine(ForecastResult result)
         {
-            return string.Format("{0:000}%{1}{2:00} Weeks{1}{3}{4}", result.Likelihood, "\t", result.Weeks, result.Date.ToShortDateString(),Environment.NewLine);
+            string date = string.Format("{0:00}/{1:00}/{2:0000}", result.Date.Month, result.Date.Day, result.Date.Year);
+
+            return string.Format("{0:000}%{1}{2:00} Weeks{1}{3}{4}", result.Likelihood, "\t", result.Weeks, date,Environment.NewLine);
         }
 
         private string BuildErrorMessage()

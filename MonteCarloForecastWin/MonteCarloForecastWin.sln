@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonteCarloForecastWin", "Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonteCarloForecast", "..\MonteCarloForecast\MonteCarloForecast.csproj", "{988BC280-5E11-461D-9488-215EC0C5E91B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonteCarloForecastTest", "MonteCarloForecastTest\MonteCarloForecastTest.csproj", "{EE9290C6-C287-4948-AD40-6AA5968DC998}"
-EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebApp", "..\WebApp\", "{1C29FF48-5B59-448A-9B6E-781A26FD4E4D}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
@@ -32,6 +30,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebApp", "..\WebApp\", "{1C
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonteCarloForecastTest", "..\MonteCarloForecastTest\MonteCarloForecastTest.csproj", "{EE9290C6-C287-4948-AD40-6AA5968DC998}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,14 +46,14 @@ Global
 		{988BC280-5E11-461D-9488-215EC0C5E91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{988BC280-5E11-461D-9488-215EC0C5E91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{988BC280-5E11-461D-9488-215EC0C5E91B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE9290C6-C287-4948-AD40-6AA5968DC998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE9290C6-C287-4948-AD40-6AA5968DC998}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE9290C6-C287-4948-AD40-6AA5968DC998}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE9290C6-C287-4948-AD40-6AA5968DC998}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1C29FF48-5B59-448A-9B6E-781A26FD4E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C29FF48-5B59-448A-9B6E-781A26FD4E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C29FF48-5B59-448A-9B6E-781A26FD4E4D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C29FF48-5B59-448A-9B6E-781A26FD4E4D}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{EE9290C6-C287-4948-AD40-6AA5968DC998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9290C6-C287-4948-AD40-6AA5968DC998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9290C6-C287-4948-AD40-6AA5968DC998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9290C6-C287-4948-AD40-6AA5968DC998}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
