@@ -1,6 +1,6 @@
 # MonteCarloForecast
 
-![Winforms Sample](https://github.com/lopperman/MonteCarloForecast/blob/master/winForecastScreenshot.PNG)
+![Winforms Sample](https://github.com/lopperman/MonteCarloForecast/blob/master/winForecastScreenshot1.PNG)
 
 C# Implementation of the Monto Carlo Probability Forecast
 
