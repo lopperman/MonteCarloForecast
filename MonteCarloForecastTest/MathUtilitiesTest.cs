@@ -1,5 +1,6 @@
 ﻿using MonteCarloForecast;
 using NUnit.Framework;
+using System;
 
 namespace MonteCarloForecastTest
 {
@@ -36,6 +37,71 @@ namespace MonteCarloForecastTest
             double percentile = MathUtilities.Percentile(values, perc);
 
             
+        }
+
+        [Test]
+        public void testBuildWeightPercentMatrix()
+        {
+            double[] samples = new double[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+            double[,] test = MathUtilities.BuildWeightPercentMatrix(samples);
+
+            Assert.AreEqual(0.018181818181818181, test[0, 1]);
+            Assert.AreEqual(0.054545454545454543, test[1, 1]);
+            Assert.AreEqual(0.10909090909090909, test[2, 1]);
+            Assert.AreEqual(0.18181818181818182, test[3, 1]);
+            Assert.AreEqual(0.27272727272727271, test[4, 1]);
+            Assert.AreEqual(0.38181818181818178, test[5, 1]);
+            Assert.AreEqual(0.509090909090909, test[6, 1]);
+            Assert.AreEqual(0.65454545454545454, test[7, 1]);
+            Assert.AreEqual(0.81818181818181812, test[8, 1]);
+            Assert.AreEqual(1m, test[9, 1]);
+        }
+
+        [Test]
+        public void testWeightedMovingAverage()
+        {
+            double[] samples = new double[] { 10,9, 8, 7, 6, 5, 4, 3, 2, 1 };
+
+            int position = 9;
+            double result = Math.Round(MathUtilities.GetWeightedMovingAverage(samples, position), 4);
+            Assert.AreEqual(0.1818m, result);
+
+            position = 8;
+            result = Math.Round(MathUtilities.GetWeightedMovingAverage(samples, position), 4);
+            Assert.AreEqual(0.1636m, result);
+
+            position = 7;
+            result = Math.Round(MathUtilities.GetWeightedMovingAverage(samples, position), 4);
+            Assert.AreEqual(0.1455m, result);
+
+            position = 6;
+            result = Math.Round(MathUtilities.GetWeightedMovingAverage(samples, position), 4);
+            Assert.AreEqual(0.1273m, result);
+
+            position = 5;
+            result = Math.Round(MathUtilities.GetWeightedMovingAverage(samples, position), 4);
+            Assert.AreEqual(0.1091m, result);
+
+            position = 4;
+            result = Math.Round(MathUtilities.GetWeightedMovingAverage(samples, position), 4);
+            Assert.AreEqual(0.0909m, result);
+
+            position = 3;
+            result = Math.Round(MathUtilities.GetWeightedMovingAverage(samples, position), 4);
+            Assert.AreEqual(0.0727m, result);
+
+            position = 2;
+            result = Math.Round(MathUtilities.GetWeightedMovingAverage(samples, position), 4);
+            Assert.AreEqual(0.0545m, result);
+
+            position = 1;
+            result = Math.Round(MathUtilities.GetWeightedMovingAverage(samples, position), 4);
+            Assert.AreEqual(0.0364m, result);
+
+            position = 0;
+            result = Math.Round(MathUtilities.GetWeightedMovingAverage(samples, position), 4);
+            Assert.AreEqual(0.0182m, result);
+
         }
     }
 }

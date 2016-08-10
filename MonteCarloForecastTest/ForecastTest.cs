@@ -42,7 +42,28 @@ namespace MonteCarloForecastTest
 
             Assert.IsNotNull(f.Rnd);
 
-            List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples);
+            List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples, AverageTypeEnum.Simple);
+
+
+
+        }
+
+        [Test]
+        public void GetForecastBasedOnHistoryWeightedAverage()
+        {
+            DateTime StartDt = DateTime.Now;
+            int RemainingStoriesGuessLow = 40;
+            int RemainingStoriesGuessHigh = 45;
+            double SplitProbabilityLow = 1.0;
+            double SplitProbabilityHigh = 1.0;
+            int[] samples = new int[] { 5, 6, 3, 1, 18, 13, 5, 4 };
+            int modelSize = 100000;
+
+            Forecast f = new Forecast(StartDt, RemainingStoriesGuessLow, RemainingStoriesGuessHigh, SplitProbabilityLow, SplitProbabilityHigh);
+
+            Assert.IsNotNull(f.Rnd);
+
+            List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples, AverageTypeEnum.Weighted);
 
 
 
@@ -79,7 +100,7 @@ namespace MonteCarloForecastTest
 
             Forecast f = new Forecast(StartDt, RemainingStoriesGuessLow, RemainingStoriesGuessHigh, SplitProbabilityLow, SplitProbabilityHigh);
 
-            List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples);
+            List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples, AverageTypeEnum.Simple);
 
 
 

@@ -53,6 +53,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.rtbResults = new System.Windows.Forms.RichTextBox();
+            this.cmdSamplesForecastWeighted = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPermutations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRemainingLowGuess)).BeginInit();
@@ -302,11 +303,12 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtSamples);
+            this.groupBox3.Controls.Add(this.cmdSamplesForecastWeighted);
             this.groupBox3.Controls.Add(this.cmdSamplesForecast);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Location = new System.Drawing.Point(9, 315);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(269, 110);
+            this.groupBox3.Size = new System.Drawing.Size(269, 161);
             this.groupBox3.TabIndex = 34;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Parameters - Forecast Based on Historic Samples";
@@ -317,17 +319,17 @@
             this.txtSamples.Location = new System.Drawing.Point(3, 29);
             this.txtSamples.Multiline = true;
             this.txtSamples.Name = "txtSamples";
-            this.txtSamples.Size = new System.Drawing.Size(263, 55);
+            this.txtSamples.Size = new System.Drawing.Size(263, 83);
             this.txtSamples.TabIndex = 34;
             // 
             // cmdSamplesForecast
             // 
             this.cmdSamplesForecast.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cmdSamplesForecast.Location = new System.Drawing.Point(3, 84);
+            this.cmdSamplesForecast.Location = new System.Drawing.Point(3, 135);
             this.cmdSamplesForecast.Name = "cmdSamplesForecast";
             this.cmdSamplesForecast.Size = new System.Drawing.Size(263, 23);
             this.cmdSamplesForecast.TabIndex = 33;
-            this.cmdSamplesForecast.Text = "Create Forecast";
+            this.cmdSamplesForecast.Text = "Create Forecast (Simple Average)";
             this.cmdSamplesForecast.UseVisualStyleBackColor = true;
             this.cmdSamplesForecast.Click += new System.EventHandler(this.cmdSamplesForecast_Click);
             // 
@@ -343,9 +345,10 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.rtbResults);
-            this.groupBox4.Location = new System.Drawing.Point(302, 12);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox4.Location = new System.Drawing.Point(287, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(484, 410);
+            this.groupBox4.Size = new System.Drawing.Size(511, 488);
             this.groupBox4.TabIndex = 35;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Forecast Results";
@@ -356,15 +359,26 @@
             this.rtbResults.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbResults.Location = new System.Drawing.Point(3, 16);
             this.rtbResults.Name = "rtbResults";
-            this.rtbResults.Size = new System.Drawing.Size(478, 391);
+            this.rtbResults.Size = new System.Drawing.Size(505, 469);
             this.rtbResults.TabIndex = 0;
             this.rtbResults.Text = "";
+            // 
+            // cmdSamplesForecastWeighted
+            // 
+            this.cmdSamplesForecastWeighted.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cmdSamplesForecastWeighted.Location = new System.Drawing.Point(3, 112);
+            this.cmdSamplesForecastWeighted.Name = "cmdSamplesForecastWeighted";
+            this.cmdSamplesForecastWeighted.Size = new System.Drawing.Size(263, 23);
+            this.cmdSamplesForecastWeighted.TabIndex = 35;
+            this.cmdSamplesForecastWeighted.Text = "Create Forecast (Weighted Average)";
+            this.cmdSamplesForecastWeighted.UseVisualStyleBackColor = true;
+            this.cmdSamplesForecastWeighted.Click += new System.EventHandler(this.cmdSamplesForecastWeighted_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 435);
+            this.ClientSize = new System.Drawing.Size(798, 488);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -416,5 +430,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.RichTextBox rtbResults;
+        private System.Windows.Forms.Button cmdSamplesForecastWeighted;
     }
 }

@@ -45,9 +45,9 @@ namespace MonteCarloForecastWin
             if (ParametersValid && SamplesValid)
             {
                 Forecast forecast = new Forecast(dtStartDt.Value.Date, RemainingStoriesLow, RemainingStoriesHigh, SplitRateLow, SplitRateHigh);
-                List<ForecastResult> results = forecast.GetForecastBasedOnHistory(Convert.ToInt32(numPermutations.Value), Samples);
+                List<ForecastResult> results = forecast.GetForecastBasedOnHistory(Convert.ToInt32(numPermutations.Value), Samples, AverageTypeEnum.Simple);
 
-                RenderResults("Samples", results);
+                RenderResults("Samples - Simple Average", results);
             }
             else
             {
@@ -284,6 +284,23 @@ namespace MonteCarloForecastWin
 
             return list.ToArray();
             
+        }
+
+        private void cmdSamplesForecastWeighted_Click(object sender, EventArgs e)
+        {
+            errors.Clear();
+            if (ParametersValid && SamplesValid)
+            {
+                Forecast forecast = new Forecast(dtStartDt.Value.Date, RemainingStoriesLow, RemainingStoriesHigh, SplitRateLow, SplitRateHigh);
+                List<ForecastResult> results = forecast.GetForecastBasedOnHistory(Convert.ToInt32(numPermutations.Value), Samples, AverageTypeEnum.Weighted);
+
+                RenderResults("Samples - Weighted Average", results);
+            }
+            else
+            {
+                MessageBox.Show(BuildErrorMessage());
+            }
+
         }
     }
 }

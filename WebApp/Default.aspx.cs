@@ -41,7 +41,7 @@ public partial class _Default : System.Web.UI.Page
 
         Forecast f = new Forecast(StartDt, RemainingStoriesGuessLow, RemainingStoriesGuessHigh, SplitProbabilityLow, SplitProbabilityHigh);
 
-        List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples);
+        List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples, AverageTypeEnum.Simple);
 
         StringBuilder sb = new StringBuilder();
 

@@ -30,7 +30,7 @@ namespace MonteCarloForecast
             }
         }
 
-        public List<ForecastResult> GetForecastBasedOnHistory(int modelSize, int[] samples)
+        public List<ForecastResult> GetForecastBasedOnHistory(int modelSize, int[] samples, AverageTypeEnum averageType)
         {
 
             double[] weeksToZero = new double[modelSize];
@@ -43,7 +43,7 @@ namespace MonteCarloForecast
                 trial.LowSplitProbability = SplitProbabilityLow;
                 trial.HighSplitProbability = SplitProbabilityHigh;
                 trial.StartDate = StartDt;
-                TrialResult trialResult = trial.RunTrialBasedOnHistoricSamples(samples);
+                TrialResult trialResult = trial.RunTrialBasedOnHistoricSamples(samples, averageType);
                 weeksToZero[i] = trialResult.Results.Count - 1;
 
                 if (i > modelSize) break;

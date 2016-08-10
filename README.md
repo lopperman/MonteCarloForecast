@@ -10,7 +10,7 @@ So, at the request of a member of my team, I decided to create this forecasting 
 
 An example for how to create a forecast is below:
 
-INPUTS:
+	INPUTS:
 	- Start Date (DateTime).  Usually this should be the current date.
 	
 	- Remaining Stories Low (int).  This is the minimum number of stories remaining to be completed for your forecast.  
@@ -24,6 +24,8 @@ INPUTS:
 	If estimating based on historic team velocity:
 	
 		- Historic Samples (int array) - Actual history of recent weeks actual team velocity.  (e.g.  5,6,3,3,1,18,13,5).  Minimum of 7 weeks required.
+	
+		- AverageTypeEnum (Averaging Type) - 'Simple' or 'Weighted'
 	
 	If estimating based on guessing high/low velocity:
 	
@@ -42,7 +44,12 @@ Example Code For forecasting based on history:
             int modelSize = 100000;
 
             Forecast f = new Forecast(StartDt, RemainingStoriesGuessLow, RemainingStoriesGuessHigh, SplitProbabilityLow, SplitProbabilityHigh);
-            List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples);
+            
+			--Use Simple Averaging
+			List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples, AverageTypeEnum.Simple);
+
+			--Use Weighted Averaging
+			List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples, AverageTypeEnum.Weighted);
 
 Example Code For forecasting based on velocity guesses:
 

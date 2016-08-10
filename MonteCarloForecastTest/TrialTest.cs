@@ -1,6 +1,8 @@
 ﻿using MonteCarloForecast;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MonteCarloForecastTest
 {
@@ -109,8 +111,41 @@ namespace MonteCarloForecastTest
             trial.SetRemainingStoryEstimates(40, 45);
             trial.SetSplitProbabilities(1.0, 1.0);
             int[] samples = new int[] { 3, 6, 6, 1, 18, 13, 5, 4 };
-            TrialResult result = trial.RunTrialBasedOnHistoricSamples(samples);
+            TrialResult result = trial.RunTrialBasedOnHistoricSamples(samples, AverageTypeEnum.Simple);
             Assert.IsNotNull(result);
+
+        }
+
+        [Test]
+        public void TestGetStoriesWeighted()
+        {
+            trial = new Trial(rnd);
+            trial.StartDate = DateTime.Today.Date;
+            trial.SetRemainingStoryEstimates(40, 45);
+            trial.SetSplitProbabilities(1.0, 1.0);
+            int[] samples = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+            int storiesThisPeriod = trial.GetStoriesForThisPeriod(samples, AverageTypeEnum.Weighted);
+
+            //22% should be 8
+            //19.4% should be 7
+
+            List<int> list = new List<int>();
+            for (int i = 0; i < 1000000; i ++)
+            {
+                list.Add(trial.GetStoriesForThisPeriod(samples, AverageTypeEnum.Weighted));
+            }
+
+            for (int i = 1; i <= 8; i ++)
+            {
+                double denom = 36d;
+                double check = (double)i / denom;
+
+                double count = (double)list.Where(x => x == i).ToList().Count() / (double)list.Count();
+
+                Assert.IsTrue(Math.Abs(count - check) <= 0.005d);
+            }
+
 
         }
 

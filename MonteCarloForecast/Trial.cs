@@ -1,7 +1,14 @@
 ﻿using System;
+using System.Linq;
 
 namespace MonteCarloForecast
 {
+    public enum AverageTypeEnum
+    {
+        Simple, 
+        Weighted
+    }
+
     public class Trial
     {
         public Random Rnd { get; private set; }
@@ -56,7 +63,7 @@ namespace MonteCarloForecast
             return Rnd.NextDouble() * (HighSplitProbability - LowSplitProbability);
         }
 
-        public TrialResult RunTrialBasedOnHistoricSamples(int[] samples)
+        public TrialResult RunTrialBasedOnHistoricSamples(int[] samples, AverageTypeEnum averageType)
         {
             TrialResult trial = new TrialResult();
 
@@ -70,13 +77,43 @@ namespace MonteCarloForecast
             while(remainingStoriesForThisTrial > 0)
             {
                 processingDate = processingDate.AddDays(7);
-                int storiesThisPeriod = samples[Rnd.Next(samples.Length)];
+                int storiesThisPeriod = GetStoriesForThisPeriod(samples, averageType);
                 remainingStoriesForThisTrial = remainingStoriesForThisTrial - storiesThisPeriod;
                 if (remainingStoriesForThisTrial < 0) remainingStoriesForThisTrial = 0;
                 trial.AddResult(processingDate, remainingStoriesForThisTrial);
             }
 
             return trial;
+        }
+
+        public int GetStoriesForThisPeriod(int[] samples, AverageTypeEnum averageType)
+        {
+            if (averageType == AverageTypeEnum.Simple)
+            {
+                return samples[Rnd.Next(samples.Length)];
+            }
+            else if (averageType == AverageTypeEnum.Weighted)
+            {
+                double[,] weightedArray = MathUtilities.BuildWeightPercentMatrix(Array.ConvertAll(samples, x => (double)x));
+                double percent = Rnd.NextDouble();
+
+                //find position in weightedArray where percent fits in, then get story from that position
+                int foundPosition = -1;
+                for (int i = weightedArray.GetUpperBound(0); i >= weightedArray.GetLowerBound(0); i --)
+                {
+                    if (i >=1 && percent <= weightedArray[i,1] && percent > weightedArray[i-1,1])
+                    {
+                        foundPosition = i;
+                        break;
+                    }
+                }
+                if (foundPosition == -1) foundPosition = 0;
+                return samples[foundPosition];
+            }
+            else
+            {
+                throw new NotImplementedException(); 
+            }
         }
 
         public TrialResult RunTrialBasedOnGuess(int lowStoriesPerWeekGuess, int highStoriesPerWeekGuess)
