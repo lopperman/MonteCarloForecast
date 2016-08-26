@@ -1,24 +1,32 @@
-﻿using MonteCarloForecast;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MonteCarloForecast;
+using System.Text.RegularExpressions;
 
 namespace MonteCarloForecastWin
 {
-    public partial class frmMain : Form
+
+
+    public partial class ForecastCtl : UserControl
     {
+        public delegate void GetHistoricSamplesDelegate(object sender, HistoricSamplesEventArgs args);
+        public event GetHistoricSamplesDelegate OnGetHistoricSamples;
+
         List<string> errors = new List<string>();
 
-        public frmMain()
+        public ForecastCtl()
         {
             InitializeComponent();
+            cmdSamplesForecast.Click += cmdSamplesForecast_Click;
+            cmdHighLowGuessForecast.Click += cmdHighLowGuessForecast_Click;
+            cmdSamplesForecastWeighted.Click += cmdSamplesForecastWeighted_Click;
         }
 
         private void cmdHighLowGuessForecast_Click(object sender, EventArgs e)
@@ -119,7 +127,7 @@ namespace MonteCarloForecastWin
         {
             string date = string.Format("{0:00}/{1:00}/{2:0000}", result.Date.Month, result.Date.Day, result.Date.Year);
 
-            return string.Format("{0:000}%{1}{2:00} Weeks{1}{3}{4}", result.Likelihood, "\t", result.Weeks, date,Environment.NewLine);
+            return string.Format("{0:000}%{1}{2:00} Weeks{1}{3}{4}", result.Likelihood, "\t", result.Weeks, date, Environment.NewLine);
         }
 
         private string BuildErrorMessage()
@@ -272,7 +280,7 @@ namespace MonteCarloForecastWin
 
             Regex digits = new Regex(@"[^\d]");
 
-            for (int i = 0; i < array.Length; i ++)
+            for (int i = 0; i < array.Length; i++)
             {
                 string test = digits.Replace(array[i], "");
                 if (!string.IsNullOrWhiteSpace(test))
@@ -283,7 +291,7 @@ namespace MonteCarloForecastWin
             }
 
             return list.ToArray();
-            
+
         }
 
         private void cmdSamplesForecastWeighted_Click(object sender, EventArgs e)
@@ -303,10 +311,31 @@ namespace MonteCarloForecastWin
 
         }
 
-        private void txtSamples_TextChanged(object sender, EventArgs e)
+        private void txtSamples_DoubleClick(object sender, EventArgs e)
         {
-            frmTestUserControl tst = new frmTestUserControl();
-            tst.Show();
+            if (OnGetHistoricSamples != null)
+            {
+                HistoricSamplesEventArgs args = new HistoricSamplesEventArgs();
+                OnGetHistoricSamples(this, args);
+                if (args != null)
+                {
+                    this.txtSamples.Text = string.Join(",", args.Samples);
+                }
+            }            
+        }
+
+        private void cmdGetHistoricSamples_Click(object sender, EventArgs e)
+        {
+            OnGetHistoricSamples?.Invoke(this, new HistoricSamplesEventArgs());
         }
     }
+
+    public class HistoricSamplesEventArgs : EventArgs
+    {
+        /// <summary>
+        /// Historic samples, with oldest samples first
+        /// </summary>
+        public int[] Samples { get; set; }
+    }
+
 }

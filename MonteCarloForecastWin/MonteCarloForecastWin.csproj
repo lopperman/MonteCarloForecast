@@ -46,16 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ForecastCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ForecastCtl.Designer.cs">
+      <DependentUpon>ForecastCtl.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTestUserControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestUserControl.Designer.cs">
+      <DependentUpon>frmTestUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ForecastCtl.resx">
+      <DependentUpon>ForecastCtl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestUserControl.resx">
+      <DependentUpon>frmTestUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
