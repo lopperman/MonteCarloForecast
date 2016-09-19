@@ -44,6 +44,7 @@
             this.numSplitRateLow = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cmdGetHistoricSamples = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.rtbResults = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmdGetHistoricSamples = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numPermutations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRemainingLowGuess)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSplitRateHigh)).BeginInit();
@@ -139,6 +139,11 @@
             // numRemainingLowGuess
             // 
             this.numRemainingLowGuess.Location = new System.Drawing.Point(170, 72);
+            this.numRemainingLowGuess.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numRemainingLowGuess.Name = "numRemainingLowGuess";
             this.numRemainingLowGuess.Size = new System.Drawing.Size(82, 20);
             this.numRemainingLowGuess.TabIndex = 22;
@@ -208,6 +213,11 @@
             // numRemainingHighGuess
             // 
             this.numRemainingHighGuess.Location = new System.Drawing.Point(170, 98);
+            this.numRemainingHighGuess.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numRemainingHighGuess.Name = "numRemainingHighGuess";
             this.numRemainingHighGuess.Size = new System.Drawing.Size(82, 20);
             this.numRemainingHighGuess.TabIndex = 23;
@@ -257,6 +267,17 @@
             this.groupBox3.TabIndex = 38;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Parameters - Forecast Based on Historic Samples";
+            // 
+            // cmdGetHistoricSamples
+            // 
+            this.cmdGetHistoricSamples.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cmdGetHistoricSamples.Location = new System.Drawing.Point(3, 29);
+            this.cmdGetHistoricSamples.Name = "cmdGetHistoricSamples";
+            this.cmdGetHistoricSamples.Size = new System.Drawing.Size(263, 23);
+            this.cmdGetHistoricSamples.TabIndex = 37;
+            this.cmdGetHistoricSamples.Text = "Get Historic Samples";
+            this.cmdGetHistoricSamples.UseVisualStyleBackColor = true;
+            this.cmdGetHistoricSamples.Click += new System.EventHandler(this.cmdGetHistoricSamples_Click);
             // 
             // label3
             // 
@@ -373,17 +394,6 @@
             this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Forecast Parameters";
-            // 
-            // cmdGetHistoricSamples
-            // 
-            this.cmdGetHistoricSamples.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cmdGetHistoricSamples.Location = new System.Drawing.Point(3, 29);
-            this.cmdGetHistoricSamples.Name = "cmdGetHistoricSamples";
-            this.cmdGetHistoricSamples.Size = new System.Drawing.Size(263, 23);
-            this.cmdGetHistoricSamples.TabIndex = 37;
-            this.cmdGetHistoricSamples.Text = "Get Historic Samples";
-            this.cmdGetHistoricSamples.UseVisualStyleBackColor = true;
-            this.cmdGetHistoricSamples.Click += new System.EventHandler(this.cmdGetHistoricSamples_Click);
             // 
             // ForecastCtl
             // 
