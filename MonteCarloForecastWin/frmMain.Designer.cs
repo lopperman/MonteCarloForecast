@@ -358,9 +358,9 @@
             // 
             this.groupBox4.Controls.Add(this.rtbResults);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox4.Location = new System.Drawing.Point(287, 0);
+            this.groupBox4.Location = new System.Drawing.Point(349, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(511, 488);
+            this.groupBox4.Size = new System.Drawing.Size(511, 691);
             this.groupBox4.TabIndex = 35;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Forecast Results";
@@ -371,7 +371,7 @@
             this.rtbResults.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbResults.Location = new System.Drawing.Point(3, 16);
             this.rtbResults.Name = "rtbResults";
-            this.rtbResults.Size = new System.Drawing.Size(505, 469);
+            this.rtbResults.Size = new System.Drawing.Size(505, 672);
             this.rtbResults.TabIndex = 0;
             this.rtbResults.Text = "";
             // 
@@ -379,7 +379,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 488);
+            this.ClientSize = new System.Drawing.Size(860, 691);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);

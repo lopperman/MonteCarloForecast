@@ -1,4 +1,4 @@
-﻿namespace MonteCarloForecastWin
+﻿namespace MonteCarloForecastWinCtl
 {
     partial class ForecastCtl
     {
@@ -55,6 +55,13 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbReleaseBurndown = new System.Windows.Forms.GroupBox();
+            this.cmdReleaseBurndown = new System.Windows.Forms.Button();
+            this.chkBurndown_SimpleAverage = new System.Windows.Forms.CheckBox();
+            this.chkBurndown_WeightedAverage = new System.Windows.Forms.CheckBox();
+            this.chkBurndown_HighLowGuess = new System.Windows.Forms.CheckBox();
+            this.dtEndDt = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numPermutations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRemainingLowGuess)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSplitRateHigh)).BeginInit();
@@ -66,6 +73,7 @@
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gbReleaseBurndown.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmdHighLowGuessForecast
@@ -190,6 +198,7 @@
             this.cmdSamplesForecastWeighted.TabIndex = 35;
             this.cmdSamplesForecastWeighted.Text = "Create Forecast (Weighted Average)";
             this.cmdSamplesForecastWeighted.UseVisualStyleBackColor = true;
+            this.cmdSamplesForecastWeighted.Click += new System.EventHandler(this.cmdSamplesForecastWeighted_Click_1);
             // 
             // cmdSamplesForecast
             // 
@@ -294,7 +303,7 @@
             this.rtbResults.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbResults.Location = new System.Drawing.Point(3, 16);
             this.rtbResults.Name = "rtbResults";
-            this.rtbResults.Size = new System.Drawing.Size(505, 567);
+            this.rtbResults.Size = new System.Drawing.Size(505, 633);
             this.rtbResults.TabIndex = 0;
             this.rtbResults.Text = "";
             // 
@@ -353,9 +362,9 @@
             // 
             this.groupBox4.Controls.Add(this.rtbResults);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox4.Location = new System.Drawing.Point(293, 0);
+            this.groupBox4.Location = new System.Drawing.Point(280, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(511, 586);
+            this.groupBox4.Size = new System.Drawing.Size(511, 652);
             this.groupBox4.TabIndex = 39;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Forecast Results";
@@ -395,16 +404,94 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Forecast Parameters";
             // 
+            // gbReleaseBurndown
+            // 
+            this.gbReleaseBurndown.Controls.Add(this.cmdReleaseBurndown);
+            this.gbReleaseBurndown.Controls.Add(this.chkBurndown_SimpleAverage);
+            this.gbReleaseBurndown.Controls.Add(this.chkBurndown_WeightedAverage);
+            this.gbReleaseBurndown.Controls.Add(this.chkBurndown_HighLowGuess);
+            this.gbReleaseBurndown.Controls.Add(this.dtEndDt);
+            this.gbReleaseBurndown.Controls.Add(this.label10);
+            this.gbReleaseBurndown.Location = new System.Drawing.Point(5, 482);
+            this.gbReleaseBurndown.Name = "gbReleaseBurndown";
+            this.gbReleaseBurndown.Size = new System.Drawing.Size(266, 160);
+            this.gbReleaseBurndown.TabIndex = 40;
+            this.gbReleaseBurndown.TabStop = false;
+            this.gbReleaseBurndown.Text = "Release Burndown";
+            this.gbReleaseBurndown.Visible = false;
+            // 
+            // cmdReleaseBurndown
+            // 
+            this.cmdReleaseBurndown.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cmdReleaseBurndown.Location = new System.Drawing.Point(3, 134);
+            this.cmdReleaseBurndown.Name = "cmdReleaseBurndown";
+            this.cmdReleaseBurndown.Size = new System.Drawing.Size(260, 23);
+            this.cmdReleaseBurndown.TabIndex = 34;
+            this.cmdReleaseBurndown.Text = "Create Release Burndown";
+            this.cmdReleaseBurndown.UseVisualStyleBackColor = true;
+            this.cmdReleaseBurndown.Click += new System.EventHandler(this.cmdReleaseBurndown_Click);
+            // 
+            // chkBurndown_SimpleAverage
+            // 
+            this.chkBurndown_SimpleAverage.AutoSize = true;
+            this.chkBurndown_SimpleAverage.Location = new System.Drawing.Point(13, 96);
+            this.chkBurndown_SimpleAverage.Name = "chkBurndown_SimpleAverage";
+            this.chkBurndown_SimpleAverage.Size = new System.Drawing.Size(144, 17);
+            this.chkBurndown_SimpleAverage.TabIndex = 32;
+            this.chkBurndown_SimpleAverage.Text = "Historic Samples - Simple";
+            this.chkBurndown_SimpleAverage.UseVisualStyleBackColor = true;
+            this.chkBurndown_SimpleAverage.CheckedChanged += new System.EventHandler(this.chkBurndown_SimpleAverage_CheckedChanged);
+            // 
+            // chkBurndown_WeightedAverage
+            // 
+            this.chkBurndown_WeightedAverage.AutoSize = true;
+            this.chkBurndown_WeightedAverage.Location = new System.Drawing.Point(13, 73);
+            this.chkBurndown_WeightedAverage.Name = "chkBurndown_WeightedAverage";
+            this.chkBurndown_WeightedAverage.Size = new System.Drawing.Size(159, 17);
+            this.chkBurndown_WeightedAverage.TabIndex = 31;
+            this.chkBurndown_WeightedAverage.Text = "Historic Samples - Weighted";
+            this.chkBurndown_WeightedAverage.UseVisualStyleBackColor = true;
+            this.chkBurndown_WeightedAverage.CheckedChanged += new System.EventHandler(this.chkBurndown_WeightedAverage_CheckedChanged);
+            // 
+            // chkBurndown_HighLowGuess
+            // 
+            this.chkBurndown_HighLowGuess.AutoSize = true;
+            this.chkBurndown_HighLowGuess.Location = new System.Drawing.Point(13, 50);
+            this.chkBurndown_HighLowGuess.Name = "chkBurndown_HighLowGuess";
+            this.chkBurndown_HighLowGuess.Size = new System.Drawing.Size(106, 17);
+            this.chkBurndown_HighLowGuess.TabIndex = 30;
+            this.chkBurndown_HighLowGuess.Text = "High/Low Guess";
+            this.chkBurndown_HighLowGuess.UseVisualStyleBackColor = true;
+            this.chkBurndown_HighLowGuess.CheckedChanged += new System.EventHandler(this.chkBurndown_HighLowGuess_CheckedChanged);
+            // 
+            // dtEndDt
+            // 
+            this.dtEndDt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtEndDt.Location = new System.Drawing.Point(173, 19);
+            this.dtEndDt.Name = "dtEndDt";
+            this.dtEndDt.Size = new System.Drawing.Size(82, 20);
+            this.dtEndDt.TabIndex = 28;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(121, 21);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 13);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "End Dt:";
+            // 
             // ForecastCtl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gbReleaseBurndown);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "ForecastCtl";
-            this.Size = new System.Drawing.Size(804, 586);
+            this.Size = new System.Drawing.Size(791, 652);
             ((System.ComponentModel.ISupportInitialize)(this.numPermutations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRemainingLowGuess)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSplitRateHigh)).EndInit();
@@ -419,6 +506,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gbReleaseBurndown.ResumeLayout(false);
+            this.gbReleaseBurndown.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -452,5 +541,12 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button cmdGetHistoricSamples;
+        private System.Windows.Forms.GroupBox gbReleaseBurndown;
+        private System.Windows.Forms.Button cmdReleaseBurndown;
+        private System.Windows.Forms.CheckBox chkBurndown_SimpleAverage;
+        private System.Windows.Forms.CheckBox chkBurndown_WeightedAverage;
+        private System.Windows.Forms.CheckBox chkBurndown_HighLowGuess;
+        private System.Windows.Forms.DateTimePicker dtEndDt;
+        private System.Windows.Forms.Label label10;
     }
 }

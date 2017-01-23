@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.forecastCtl1 = new MonteCarloForecastWin.ForecastCtl();
+            this.forecastCtl1 = new MonteCarloForecastWinCtl.ForecastCtl();
             this.SuspendLayout();
             // 
             // forecastCtl1
             // 
-            this.forecastCtl1.Location = new System.Drawing.Point(12, 12);
+            this.forecastCtl1.Location = new System.Drawing.Point(51, 19);
             this.forecastCtl1.Name = "forecastCtl1";
-            this.forecastCtl1.Size = new System.Drawing.Size(804, 586);
+            this.forecastCtl1.Size = new System.Drawing.Size(791, 652);
             this.forecastCtl1.TabIndex = 0;
-            this.forecastCtl1.OnGetHistoricSamples += new MonteCarloForecastWin.ForecastCtl.GetHistoricSamplesDelegate(this.forecastCtl1_OnGetHistoricSamples);
             // 
             // frmTestUserControl
             // 
@@ -53,6 +52,6 @@
 
         #endregion
 
-        private ForecastCtl forecastCtl1;
+        private MonteCarloForecastWinCtl.ForecastCtl forecastCtl1;
     }
 }

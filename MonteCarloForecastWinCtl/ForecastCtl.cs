@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MonteCarloForecast;
 using System.Text.RegularExpressions;
 
-namespace MonteCarloForecastWin
+namespace MonteCarloForecastWinCtl
 {
 
 
@@ -335,6 +335,113 @@ namespace MonteCarloForecastWin
                     this.txtSamples.Text = string.Join(",", args.Samples);
                 }
             }
+        }
+
+        private void chkBurndown_HighLowGuess_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkBurndown_HighLowGuess.Checked)
+            {
+                chkBurndown_SimpleAverage.Checked = false;
+                chkBurndown_WeightedAverage.Checked = false;
+            }
+        }
+
+        private void chkBurndown_WeightedAverage_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkBurndown_WeightedAverage.Checked)
+            {
+                chkBurndown_SimpleAverage.Checked = false;
+                chkBurndown_HighLowGuess.Checked = false;
+            }
+
+        }
+
+        private void chkBurndown_SimpleAverage_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkBurndown_SimpleAverage.Checked)
+            {
+                chkBurndown_WeightedAverage.Checked = false;
+                chkBurndown_HighLowGuess.Checked = false;
+            }
+
+        }
+
+        private void cmdReleaseBurndown_Click(object sender, EventArgs e)
+        {
+
+            Burndown burndown = null;
+
+            errors.Clear();
+
+            if (MissingBurndownType)
+            {
+                return;
+            }
+            if (dtStartDt.Value.DayOfWeek != dtEndDt.Value.DayOfWeek)
+            {
+                MessageBox.Show("Day of week for Start Date and End Date must be the same");
+                return;
+            }
+            TimeSpan ts = dtEndDt.Value.Subtract(dtStartDt.Value);
+            if (ts.TotalDays < 7)
+            {
+                MessageBox.Show("End Date must be greater than start date");
+                return;
+            }
+            if (chkBurndown_HighLowGuess.Checked)
+            {
+                if (ParametersValid && ForecastLowHighParametersValid)
+                {
+                    burndown = new Burndown(ForecastTypeEnum.HighLowGuess,dtStartDt.Value.Date,dtEndDt.Value.Date,RemainingStoriesLow,RemainingStoriesHigh,SplitRateLow,SplitRateHigh,VelocityGuessLow,VelocityGuessHigh,Samples);
+                }
+                else
+                {
+                    MessageBox.Show(BuildErrorMessage());
+                }
+            }
+            if (chkBurndown_SimpleAverage.Checked)
+            {
+                if (ParametersValid && SamplesValid)
+                {
+                    burndown = new Burndown(ForecastTypeEnum.Simple, dtStartDt.Value.Date, dtEndDt.Value.Date, RemainingStoriesLow, RemainingStoriesHigh, SplitRateLow, SplitRateHigh, VelocityGuessLow, VelocityGuessHigh, Samples);
+                }
+                else
+                {
+                    MessageBox.Show(BuildErrorMessage());
+                }
+            }
+            if (chkBurndown_WeightedAverage.Checked)
+            {
+                if (ParametersValid && SamplesValid)
+                {
+                    burndown = new Burndown(ForecastTypeEnum.Weighted, dtStartDt.Value.Date, dtEndDt.Value.Date, RemainingStoriesLow, RemainingStoriesHigh, SplitRateLow, SplitRateHigh, VelocityGuessLow, VelocityGuessHigh, Samples);
+                }
+                else
+                {
+                    MessageBox.Show(BuildErrorMessage());
+                }
+            }
+        }
+
+        private bool MissingBurndownType
+        {
+            get
+            {
+                bool ret = false;
+                if (!chkBurndown_HighLowGuess.Checked && !chkBurndown_WeightedAverage.Checked &&
+                    !chkBurndown_SimpleAverage.Checked)
+                {
+                    ret = true;
+                    MessageBox.Show("Please select a forecast method for release burndown.");
+                }
+                return ret;
+
+            }
+        }
+
+        private void cmdSamplesForecastWeighted_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 
