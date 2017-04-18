@@ -1,0 +1,31 @@
+﻿body {
+    font-family: Verdana;
+    font-size: 12px;  
+}
+
+.heading {
+    background-color: lightyellow;
+    color: black;
+    max-width: 300px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.textbox {
+    background-color: lightgray;
+    max-width: 75px;
+    padding: 5px;
+}
+
+.textboxLarge {
+    background-color: lightgray;
+    max-width: 250px;
+    padding: 5px;
+}
+
+.button {
+    outline: 3px solid blue;
+    height: 30px;
+    width: 300px;
+}

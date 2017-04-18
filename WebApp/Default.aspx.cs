@@ -80,4 +80,29 @@ public partial class _Default : System.Web.UI.Page
         TextBox1.Text = sb.ToString();
 
     }
+
+    protected void btnForecastHistoryWeighted_Click(object sender, EventArgs e)
+    {
+        DateTime StartDt = startDate.SelectedDate.Date;
+        int RemainingStoriesGuessLow = Convert.ToInt32(txtLowRemainingStories.Text);
+        int RemainingStoriesGuessHigh = Convert.ToInt32(txtHighRemainingStories.Text);
+        double SplitProbabilityLow = Convert.ToDouble(txtLowProb.Text);
+        double SplitProbabilityHigh = Convert.ToDouble(txtHighProb.Text);
+        int[] samples = txtSamples.Text.Split(','.ToString().ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(n => Convert.ToInt32(n)).ToArray();
+        int modelSize = Convert.ToInt32(txtModelSize.Text);
+
+        Forecast f = new Forecast(StartDt, RemainingStoriesGuessLow, RemainingStoriesGuessHigh, SplitProbabilityLow, SplitProbabilityHigh);
+
+        List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples, AverageTypeEnum.Weighted);
+
+        StringBuilder sb = new StringBuilder();
+
+        foreach (ForecastResult fr in results.OrderByDescending(x => x.Date).ToList())
+        {
+            sb.AppendLine(string.Format("{0:000}%\t{1:00} Weeks\t{2}", fr.Likelihood, fr.Weeks, fr.Date.ToShortDateString()));
+        }
+
+        TextBox1.Text = sb.ToString();
+
+    }
 }
