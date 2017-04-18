@@ -25,7 +25,22 @@
 }
 
 .button {
-    outline: 3px solid blue;
     height: 30px;
     width: 300px;
+    border-radius: 10px;
 }
+
+.table {
+    border: 1px solid black;
+    width: 500px;
+    border-collapse: collapse;
+}
+
+.tableCell {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-weight: normal;
+    
+}
+
+
