@@ -45,6 +45,14 @@ public partial class _Default : System.Web.UI.Page
 
         StringBuilder sb = new StringBuilder();
 
+        sb.AppendLine("Simple Forecast based on history");
+        sb.AppendLine(string.Format("Forecast as of    -- {0}", StartDt.ToShortDateString()));
+        sb.AppendLine(string.Format("Remaining Stories -- Low Guess: {0}, High Guess: {1}", RemainingStoriesGuessLow, RemainingStoriesGuessHigh));
+        sb.AppendLine(string.Format("Cadence History   -- {0}", txtSamples.Text));
+        sb.AppendLine(string.Format("Split Prob.       -- Low Guess: {0}, High Guess: {1}", SplitProbabilityLow, SplitProbabilityHigh));
+        sb.AppendLine();
+
+
         foreach (ForecastResult fr in results.OrderByDescending(x => x.Date).ToList())
         {
             sb.AppendLine(string.Format("{0:000}%\t{1:00} Weeks\t{2}", fr.Likelihood, fr.Weeks, fr.Date.ToShortDateString()));
@@ -72,6 +80,13 @@ public partial class _Default : System.Web.UI.Page
 
         StringBuilder sb = new StringBuilder();
 
+        sb.AppendLine("Forecast based on velocity guess");
+        sb.AppendLine(string.Format("Forecast as of    -- {0}", StartDt.ToShortDateString()));
+        sb.AppendLine(string.Format("Remaining Stories -- Low Guess: {0}, High Guess: {1}", RemainingStoriesGuessLow,RemainingStoriesGuessHigh));
+        sb.AppendLine(string.Format("Weekly Cadence    -- Low Guess: {0}, High Guess: {1}", lowStoriesPerWeek,highStoriesPerWeek));
+        sb.AppendLine(string.Format("Split Prob.       -- Low Guess: {0}, High Guess: {1}", SplitProbabilityLow,SplitProbabilityHigh));
+        sb.AppendLine();       
+
         foreach (ForecastResult fr in results.OrderByDescending(x => x.Date).ToList())
         {
             sb.AppendLine(string.Format("{0:000}%\t{1:00} Weeks\t{2}", fr.Likelihood, fr.Weeks, fr.Date.ToShortDateString()));
@@ -96,6 +111,14 @@ public partial class _Default : System.Web.UI.Page
         List<ForecastResult> results = f.GetForecastBasedOnHistory(modelSize, samples, AverageTypeEnum.Weighted);
 
         StringBuilder sb = new StringBuilder();
+
+        sb.AppendLine("Weighted Forecast based on history");
+        sb.AppendLine(string.Format("Forecast as of    -- {0}", StartDt.ToShortDateString()));
+        sb.AppendLine(string.Format("Remaining Stories -- Low Guess: {0}, High Guess: {1}", RemainingStoriesGuessLow, RemainingStoriesGuessHigh));
+        sb.AppendLine(string.Format("Cadence History   -- {0}", txtSamples.Text));
+        sb.AppendLine(string.Format("Split Prob.       -- Low Guess: {0}, High Guess: {1}", SplitProbabilityLow, SplitProbabilityHigh));
+        sb.AppendLine();
+
 
         foreach (ForecastResult fr in results.OrderByDescending(x => x.Date).ToList())
         {
