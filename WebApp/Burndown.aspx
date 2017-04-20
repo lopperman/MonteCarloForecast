@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Burndown.aspx.cs" Inherits="Burndown" %>
 
 <!DOCTYPE html>
 
@@ -8,7 +8,7 @@
     <link href="StyleSheet.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<form id="form1" runat="server">
+    <form id="burndownForm" runat="server">
     <span>&nbsp;<asp:RadioButtonList ID="RadioButtonList1" runat="server" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged" RepeatDirection="Horizontal" AutoPostBack="True">
             <asp:ListItem Selected="True" Value="History">History Based Forecast</asp:ListItem>
             <asp:ListItem Value="Guess">Guess Based Forecast</asp:ListItem>
@@ -70,7 +70,6 @@
         <br/>
     </div>
     <br/>
-    <asp:TextBox ID="TextBox1" runat="server" Height="356px" TextMode="MultiLine" Width="692px"></asp:TextBox>
-</form>
+    </form>
 </body>
 </html>
