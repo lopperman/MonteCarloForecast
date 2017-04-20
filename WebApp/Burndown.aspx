@@ -14,14 +14,35 @@
             <asp:ListItem Value="Guess">Guess Based Forecast</asp:ListItem>
         </asp:RadioButtonList>
 </span>
-    <p class="heading">
-        Select Start Date:&nbsp;
+        <table>
+            <tr>
+                <td><p class="heading">
+        Select Project Start Date:&nbsp;
     </p>
     <div >
         <asp:Calendar ID="startDate" runat="server"></asp:Calendar>
         <br/>
         &nbsp;<br/>
-    </div>
+    </div></td>
+                <td><p class="heading">
+        Select Target End Date:&nbsp;
+    </p>
+    <div >
+        <asp:Calendar ID="endDate" runat="server"></asp:Calendar>
+        <br/>
+        &nbsp;<br/>
+    </div></td>
+                <td><p class="heading">
+        Select Forecase From Date:&nbsp;
+    </p>
+    <div >
+        <asp:Calendar ID="forecastDate" runat="server"></asp:Calendar>
+        <br/>
+        &nbsp;<br/>
+    </div></td>
+            </tr>
+        </table>
+    
 
 
     <span><div class ="heading">Estimate Low/High Remaining User Stories:</div>

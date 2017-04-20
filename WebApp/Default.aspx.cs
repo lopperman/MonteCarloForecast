@@ -189,4 +189,10 @@ public partial class _Default : System.Web.UI.Page
         GuessForecastElements.Visible = !historyMode;
         HistoryForecastElements.Visible = historyMode;
     }
+
+
+    protected void cmdBurndown_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Burndown.aspx");
+    }
 }

@@ -57,11 +57,9 @@
     <div id="GuessForecastElements"  runat="server">
         <div class="heading">Estimate Low/High Guess stories per week:</div>
         <div>
-            <asp:Textbox>
                 <asp:TextBox ID="txtEstLowVelocity" CssClass="textbox" runat="server" AutoPostBack="True"/>
-            </asp:Textbox>/<asp:Textbox>
+            /
                 <asp:TextBox ID="txtEstHighVelocity" CssClass="textbox" runat="server" AutoPostBack="True"/>
-            </asp:Textbox>
         </div>
         <br/>
 
@@ -69,8 +67,15 @@
 
         <br/>
     </div>
+    <table >
+        <tr>
+            <td><asp:TextBox ID="TextBox1" runat="server" Height="356px" TextMode="MultiLine" Width="692px"></asp:TextBox></td>
+            <td><asp:Button ID="cmdBurndown" runat="server" OnClick="cmdBurndown_Click" Text="Show Burndown" Width="118px"  CssClass="button" /></td>
+        </tr>
+    </table>
     <br/>
-    <asp:TextBox ID="TextBox1" runat="server" Height="356px" TextMode="MultiLine" Width="692px"></asp:TextBox>
+    
+    
 </form>
 </body>
 </html>
