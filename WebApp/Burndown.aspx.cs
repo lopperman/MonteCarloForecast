@@ -13,11 +13,12 @@ public partial class Burndown : System.Web.UI.Page
         if (!IsPostBack)
         {
             startDate.SelectedDate = DateTime.Today;
+            endDate.SelectedDate = DateTime.Today;
+            forecastDate.SelectedDate = DateTime.Today;
             txtHighProb.Text = "1.0";
             txtLowProb.Text = "1.0";
             txtModelSize.Text = "100000";
             ToggleForecastTypeView(RadioButtonList1.SelectedValue);
-
         }
     }
 
@@ -86,6 +87,23 @@ public partial class Burndown : System.Web.UI.Page
         {
             return txtSamples.Text.Split(','.ToString().ToCharArray(), StringSplitOptions.RemoveEmptyEntries).Select(n => Convert.ToInt32(n)).ToArray();
         }
+    }
+
+    private DateTime ForecastFromDate
+    {
+        get { return this.forecastDate.SelectedDate.Date; }
+    }
+
+    private DateTime ForecastStartDate
+    {
+
+        get { return this.endDate.SelectedDate.Date; }
+                    
+    }
+
+    private DateTime IdealEndDate
+    {
+        get { return this.endDate.SelectedDate.Date; }
     }
 
     #endregion

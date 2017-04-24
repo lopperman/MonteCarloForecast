@@ -193,6 +193,11 @@ public partial class _Default : System.Web.UI.Page
 
     protected void cmdBurndown_Click(object sender, EventArgs e)
     {
+        NavigateToBurndown(sender,e);
+    }
+
+    internal void NavigateToBurndown(object sender, EventArgs e)
+    {
         Response.Redirect("Burndown.aspx");
     }
 }

@@ -4,8 +4,9 @@
 }
 
 .heading {
-    background-color: lightyellow;
-    color: black;
+    background-color: #1A5276;
+    
+    color: whitesmoke;
     max-width: 300px;
     text-align: center;
     border: 1px solid black;
@@ -13,13 +14,13 @@
 }
 
 .textbox {
-    background-color: lightgray;
+    background-color: #EAF2F8  ;
     max-width: 75px;
     padding: 5px;
 }
 
 .textboxLarge {
-    background-color: lightgray;
+    background-color: #EAF2F8  ;
     max-width: 250px;
     padding: 5px;
 }

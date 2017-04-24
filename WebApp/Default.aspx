@@ -70,7 +70,8 @@
     <table >
         <tr>
             <td><asp:TextBox ID="TextBox1" runat="server" Height="356px" TextMode="MultiLine" Width="692px"></asp:TextBox></td>
-            <td><asp:Button ID="cmdBurndown" runat="server" OnClick="cmdBurndown_Click" Text="Show Burndown" Width="118px"  CssClass="button" /></td>
+            <td><asp:Button ID="cmdBurndown" runat="server" OnClick="cmdBurndown_Click" Text="Show Burndown" Width="118px"  CssClass="button" />
+                <input id="htmlButtonBurndown" class="button" type="button" value="Burndown (html)" runat="server" OnServerClick="NavigateToBurndown" /></td>
         </tr>
     </table>
     <br/>
