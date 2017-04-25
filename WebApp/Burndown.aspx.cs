@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.DataVisualization.Charting;
 using System.Web.UI.WebControls;
 using MonteCarloForecast;
 
@@ -116,6 +118,8 @@ public partial class Burndown : System.Web.UI.Page
         Forecast f = new Forecast(StartDt, RemainingStoriesGuessLow, RemainingStoriesGuessHigh, SplitProbabilityLow, SplitProbabilityHigh);
 
         List<ForecastResult> results = f.GetForecastBasedOnHistory(ModelSize, Samples, AverageTypeEnum.Simple);
+
+        Chart(results);
     }
 
     protected void btnForecastHistoryWeighted_Click(object sender, EventArgs e)
@@ -126,6 +130,7 @@ public partial class Burndown : System.Web.UI.Page
 
         List<ForecastResult> results = f.GetForecastBasedOnHistory(ModelSize, Samples, AverageTypeEnum.Weighted);
 
+        Chart(results);
 
     }
 
@@ -136,7 +141,48 @@ public partial class Burndown : System.Web.UI.Page
         Forecast f = new Forecast(StartDt, RemainingStoriesGuessLow, RemainingStoriesGuessHigh, SplitProbabilityLow, SplitProbabilityHigh);
 
         List<ForecastResult> results = f.GetForecastBasedOnHighLowGuess(ModelSize, LowStoriesPerWeek, HighStoriesPerWeek);
+
+        Chart(results);
+
     }
+
+    protected void Chart(List<ForecastResult> results)
+    {
+        
+        while (true)
+        {
+            Chart1.Series.Remove(Chart1.Series.FirstOrDefault());
+            if (Chart1.Series.Count == 0)
+            {
+                break;
+            }
+        }
+
+        Series series = CreateSeries("count", SeriesChartType.Line, 2, Color.Blue, ChartDashStyle.Solid,
+    ChartValueType.DateTime, "Dev Complete");
+        Chart1.Series.Add(series);
+        Chart1.Series["count"].Points.DataBind(results, "Weeks", "Likelihood", "Tooltip=Weeks");
+
+        Chart1.Visible = true;
+
+
+    }
+
+    private Series CreateSeries(string name, SeriesChartType chartType, int borderWidth, Color color, ChartDashStyle borderDashStyle,
+    ChartValueType valueType, string legendText)
+    {
+        Series series = new Series(name);
+        series.ChartType = chartType;
+        series.BorderWidth = borderWidth;
+        series.BorderDashStyle = borderDashStyle;
+        series.Color = color;
+        series.XValueType = valueType;
+        series.IsValueShownAsLabel = true;
+        series.LegendText = legendText;
+
+        return series;
+    }
+
 
     protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
     {

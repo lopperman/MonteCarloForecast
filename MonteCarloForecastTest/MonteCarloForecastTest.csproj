@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BurndownTableTest.cs" />
     <Compile Include="ForecastResultTest.cs" />
     <Compile Include="ForecastTest.cs" />
     <Compile Include="MathUtilitiesTest.cs" />

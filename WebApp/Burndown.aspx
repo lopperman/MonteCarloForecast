@@ -54,7 +54,7 @@
 
     <div class="heading">Estimate Low/High Split Probability:</div>
     <div><asp:TextBox ID="txtLowProb" CssClass="textbox" runat="server" AutoPostBack="True"></asp:TextBox>/<asp:TextBox ID="txtHighProb" CssClass="textbox" runat="server" AutoPostBack="True"></asp:TextBox>
-    </div></span>
+    </div>
 
     <br/>
 
@@ -80,11 +80,16 @@
     <div id="GuessForecastElements"  runat="server">
         <div class="heading">Estimate Low/High Guess stories per week:</div>
         <div>
-            <asp:Textbox>
-                <asp:TextBox ID="txtEstLowVelocity" CssClass="textbox" runat="server" AutoPostBack="True"/>
-            </asp:Textbox>/<asp:Textbox>
-                <asp:TextBox ID="txtEstHighVelocity" CssClass="textbox" runat="server" AutoPostBack="True"/>
-            </asp:Textbox>
+                <asp:TextBox ID="txtEstLowVelocity" CssClass="textbox" runat="server" AutoPostBack="True"/>/<asp:TextBox ID="txtEstHighVelocity" CssClass="textbox" runat="server" AutoPostBack="True"/>
+        </div>
+        <br/>
+
+        <asp:Button ID="btnForecastGuess" CssClass="button" runat="server" OnClick="btnForecastGuess_Click" Text="Forecast (Guess based)"/>
+
+        <br/>
+    </div>
+    <br/>
+        <p>
             <asp:Chart ID="Chart1" runat="server" Width="670px">
                 <series>
                     <asp:Series ChartType="Bar" Name="Series1">
@@ -95,18 +100,11 @@
                     </asp:ChartArea>
                 </chartareas>
                 <Titles>
-                    <asp:Title Name="Title1" Text="This is a fucking Chart">
+                    <asp:Title Name="Title1" Text="This is a Chart">
                     </asp:Title>
                 </Titles>
             </asp:Chart>
-        </div>
-        <br/>
-
-        <asp:Button ID="btnForecastGuess" CssClass="button" runat="server" OnClick="btnForecastGuess_Click" Text="Forecast (Guess based)"/>
-
-        <br/>
-    </div>
-    <br/>
+        </p>
     </form>
 </body>
 </html>
